@@ -5,12 +5,12 @@ pathogen.register_pathogen("influencia", {
   infection_period = 740,
   on_infect = function( infection )
     local _player = minetest.get_player_by_name( infection.player )
-    local _pos = _player:getpos()
+    local _pos = _player:get_pos()
     minetest.sound_play( "pathogen_cough", { pos = _pos, gain = 0.3 } )
   end,
   on_symptom = function( infection )
     local player = minetest.get_player_by_name( infection.player )
-    local pos = player:getpos()
+    local pos = player:get_pos()
     local players_nearby = pathogen.get_players_in_radius(pos, 5)
     local hp = player:get_hp()
     if hp <= 14 then
